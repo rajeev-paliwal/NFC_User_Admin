@@ -1,0 +1,112 @@
+<div role="document">
+    <div>
+        <form class="form-horizontal" id="edit-form"  [formGroup]="EditemployeeForm"   >
+        
+            <div class="modal-header">
+                <h4 class="modal-title" id="add-modal-label">Add Post </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()"><span
+                        aria-hidden="true">&times;</span></button>
+               
+            </div>
+            <div class="modal-body" style="height: 70vh;overflow: auto;" >
+                <div class="container-fluid">
+                    <h2> Card Data {{optype}} </h2>
+                   
+                    <div class="form-group">
+                       
+                        <label>First Name </label>
+                        <input  
+                            [class.is-invalid]="EditemployeeForm.get('FirstName')?.invalid && EditemployeeForm.get('FirstName')?.touched"
+                            formControlName="FirstName" type="text" class="form-control">
+                        <input formControlName="ID" type="hidden" class="form-control" >
+                        <small
+                            [class.d-none]="EditemployeeForm.get('FirstName')?.valid || EditemployeeForm.get('FirstName')?.untouched"
+                            class="text-danger">First Name Is Required</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Middle Name </label>
+                        <input  
+                            [class.is-invalid]="EditemployeeForm.get('MiddleName')?.invalid && EditemployeeForm.get('MiddleName')?.touched"
+                            formControlName="MiddleName" type="text" class="form-control">
+                        
+                   
+                    </div>
+
+                    <div class="form-group">
+                        <label>Last Name </label>
+                        <input
+                            [class.is-invalid]="EditemployeeForm.get('LastName')?.invalid && EditemployeeForm.get('LastName')?.touched"
+                            formControlName="LastName" type="text" class="form-control" >
+                       <!-- <div  *ngIf="EditemployeeForm.get('LastName').invalid && EditemployeeForm.get('LastName').touched ">
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.required" class="text-danger">Last
+                                Name Is Required</small>
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.minlength" class="text-danger">Last
+                                Name Is Should be min 3 char</small>
+                        </div>-->
+                    </div>
+                    <div class="form-group">
+                        <label>Organization </label>
+                        <input
+                            [class.is-invalid]="EditemployeeForm.get('Organization')?.invalid && EditemployeeForm.get('Organization')?.touched"
+                            formControlName="Organization" type="text" class="form-control" >
+                       <!-- <div  *ngIf="EditemployeeForm.get('LastName').invalid && EditemployeeForm.get('LastName').touched ">
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.required" class="text-danger">Last
+                                Name Is Required</small>
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.minlength" class="text-danger">Last
+                                Name Is Should be min 3 char</small>
+                        </div>-->
+                    </div>
+
+                    <div class="form-group">
+                        <label>Title </label>
+                        <input
+                            [class.is-invalid]="EditemployeeForm.get('Title')?.invalid && EditemployeeForm.get('Title')?.touched"
+                            formControlName="Title" type="text" class="form-control" >
+                       <!-- <div  *ngIf="EditemployeeForm.get('LastName').invalid && EditemployeeForm.get('LastName').touched ">
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.required" class="text-danger">Last
+                                Name Is Required</small>
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.minlength" class="text-danger">Last
+                                Name Is Should be min 3 char</small>
+                        </div>-->
+                    </div>
+
+                    <div class="form-group">
+                        <label>Birthday </label>
+                        <input
+                            [class.is-invalid]="EditemployeeForm.get('Birthday')?.invalid && EditemployeeForm.get('Birthday')?.touched"
+                            formControlName="Birthday" type="text" class="form-control" >
+                       <!-- <div  *ngIf="EditemployeeForm.get('LastName').invalid && EditemployeeForm.get('LastName').touched ">
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.required" class="text-danger">Last
+                                Name Is Required</small>
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.minlength" class="text-danger">Last
+                                Name Is Should be min 3 char</small>
+                        </div>-->
+                    </div>
+                    <div class="form-group">
+                        <label>Note </label>
+                        <input
+                            [class.is-invalid]="EditemployeeForm.get('Note')?.invalid && EditemployeeForm.get('Note')?.touched"
+                            formControlName="Note" type="text" class="form-control" >
+                       <!-- <div  *ngIf="EditemployeeForm.get('LastName').invalid && EditemployeeForm.get('LastName').touched ">
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.required" class="text-danger">Last
+                                Name Is Required</small>
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.minlength" class="text-danger">Last
+                                Name Is Should be min 3 char</small>
+                        </div>-->
+                    </div>
+                   </div>
+                                      
+                    
+                </div>
+
+                <!--<div>{{EditemployeeForm.value | json}}</div>-->
+                <!--<hr />-->
+
+           
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="onClose()">Close</button>
+                <button type="submit" class="btn btn-primary" (click)="onEditPostFormSubmit()">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

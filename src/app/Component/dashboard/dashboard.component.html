@@ -1,0 +1,344 @@
+
+<app-header></app-header>
+<app-leftnavigation></app-leftnavigation>
+<div style="margin: auto; width: 100px;" *ngIf="isloading"><mat-spinner style="margin-top: 100px;"></mat-spinner></div>
+<main class="app-content" *ngIf="!isloading">
+      <div class="app-title">
+      <div>
+        <h1><i class="fa fa-user"></i>user Profile</h1>
+        <p>User Profile Info</p>
+      </div>
+      <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item"><a routerLink='/dashboard' routerLinkActive="active"><i
+              class="fa fa-home fa-lg"></i></a></li>
+        <li class="breadcrumb-item"><a routerLink="/employee" routerLinkActive="active">User Profile</a></li>
+  
+      </ul>
+    </div>
+    <div class="row">
+<section style="background-color: #eee;">
+    <div class="container py-5">
+     
+  
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-body text-center ">
+              <div class="item" style="border-radius: 50%;">
+              <img src={{Emp.Photo}} alt="avatar"
+                >
+              </div>
+              <h5 class="my-3">{{Emp.FirstName}} {{Emp.MiddleName}} {{Emp.LastName}}</h5>
+              <p class="text-muted mb-1">{{Emp.Title}}</p>
+              <p class="text-muted mb-4">{{Emp.Organization}}</p>
+              <div class="d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-primary" (click)="uploadProfile(Emp)">Edit Profile Picture</button>
+               
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-lg-8">
+          <div class="card mb-4">
+            <div class="card-body">
+         
+
+        
+              <div class="row" *ngIf="Emp.FirstName!==''">
+                <div class="col-sm-3">
+                  <p class="mb-0">First Name</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{Emp.FirstName}}</p>
+                </div>                
+              </div>              
+              <hr *ngIf="Emp.FirstName!==''">
+
+              <div class="row" *ngIf="Emp.MiddleName!==''">
+                <div class="col-sm-3">
+                  <p class="mb-0">Middle Name</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{Emp.MiddleName}}</p>
+                </div>
+              </div>              
+              <hr *ngIf="Emp.MiddleName!==''">
+
+              <div class="row" *ngIf="Emp.LastName!==''">
+                <div class="col-sm-3">
+                  <p class="mb-0">Last Name</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{Emp.LastName}}</p>
+                </div>
+              </div>              
+              <hr *ngIf="Emp.LastName!==''">
+
+              <div class="row" *ngIf="Emp.Birthday!==''">
+                <div class="col-sm-3">
+                  <p class="mb-0">Birth day</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{Emp.Birthday}}</p>
+                </div>
+              </div>              
+              <hr *ngIf="Emp.Birthday!==''">
+
+              <div class="row" *ngIf="Emp.Title!==''">
+                <div class="col-sm-3">
+                  <p class="mb-0">Title</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{Emp.Title}}</p>
+                </div>
+              </div>
+              <hr *ngIf="Emp.Title!==''">
+
+             
+              <div class="row" *ngIf="Emp.Organization!==''">
+                <div class="col-sm-3">
+                  <p class="mb-0">Organization</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{Emp.Organization}}</p>
+                </div>
+              </div>
+              <hr *ngIf="Emp.Organization!==''">
+
+              <div class="row" *ngIf="Emp.Note!==''">
+                <div class="col-sm-3">
+                  <p class="mb-0">Note</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{Emp.Note}}</p>
+                </div>
+              </div>
+              <hr *ngIf="Emp.Note!==''">
+              <div class="d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-primary" (click)="editPDPost(Emp)">Edit Profile Data</button>
+               
+              </div>
+
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="card-body">
+         
+
+        
+              <div class="row" *ngIf="Emp.PhoneNo1!==''">
+                <div class="col-sm-3">
+                  <p class="mb-0">PhoneNo 1</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{Emp.PhoneNo1}}</p>
+                </div>                
+              </div>              
+              <hr *ngIf="Emp.PhoneNo1!==''">
+
+              <div class="row" *ngIf="Emp.PhoneNo2!==''">
+                <div class="col-sm-3">
+                  <p class="mb-0">PhoneNo 2</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{Emp.PhoneNo2}}</p>
+                </div>                
+              </div>              
+              <hr *ngIf="Emp.PhoneNo2!==''">
+
+              
+              <div class="row" *ngIf="Emp.PhoneNo3!==''">
+                <div class="col-sm-3">
+                  <p class="mb-0">PhoneNo 3</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{Emp.PhoneNo3}}</p>
+                </div>                
+              </div>              
+              <hr *ngIf="Emp.PhoneNo3!==''">
+
+
+              <div class="row" *ngIf="Emp.Email!==''">
+                <div class="col-sm-3">
+                  <p class="mb-0">Email</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{Emp.Email}}</p>
+                </div>
+              </div>              
+              <hr *ngIf="Emp.Email!==''">
+
+              <div class="row" *ngIf="Emp.Website!==''">
+                <div class="col-sm-3">
+                  <p class="mb-0">Website</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{Emp.Website}}</p>
+                </div>
+              </div>              
+              <hr *ngIf="Emp.Website!==''">
+
+              <div class="row" *ngIf="Emp.CardAddress!==''">
+                <div class="col-sm-3">
+                  <p class="mb-0">Address</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{Emp.CardAddress}}</p>
+                </div>
+              </div>
+              <hr *ngIf="Emp.CardAddress!==''">
+
+            
+          
+            
+              <div class="d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-primary" (click)="editCDPost(Emp)">Edit Contact Info</button>
+               
+              </div>
+
+            </div>
+          </div>
+          <div class="card mb-4 mb-lg-0">
+            <div class="card-body p-0">
+              <ul class="list-group list-group-flush rounded-3">
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <i class="fa fa-facebook fa-2x" style="color: rgb(22, 22, 185);"></i>  
+                  <p class="mb-0">{{Emp.Facebook}}</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <i class="fa fa-whatsapp fa-2x" style="color: rgb(82, 228, 145);"></i>  
+                  <p class="mb-0">{{Emp.WhatsApp}}</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <i class="fa fa-linkedin fa-2x" style="color: rgb(82, 82, 228);"></i>  
+                  <p class="mb-0">{{Emp.LinkedIn}}</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <i class="fa fa-instagram fa-2x" style="color: rgb(228, 82, 123);"></i>  
+                    <p class="mb-0">{{Emp.Instgram}}</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <i class="fa fa-snapchat-square fa-2x" style="color: rgb(213, 228, 82);"></i>  
+                  <p class="mb-0">{{Emp.Snapchat}}</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <i class="fa fa-telegram fa-2x" style="color: rgb(82, 82, 228);"></i>  
+                  <p class="mb-0">{{Emp.Telegram}}</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <i class="fa fa-youtube-play fa-2x" style="color: rgb(218, 25, 44);"></i>  
+                  <p class="mb-0">{{Emp.Youtube}}</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <i class="fa fa-skype fa-2x" style="color: rgb(82, 82, 228);"></i>  
+                  <p class="mb-0">{{Emp.Skype}}</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <i class="fa fa-twitter fa-2x" style="color: rgb(82, 82, 228);"></i>  
+                  <p class="mb-0">{{Emp.Tweeter}}</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <svg class='fontawesomesvg fa-2x'   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="color: bisque;"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
+                  <p class="mb-0">{{Emp.Tiktok}}</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <i class="fa fa-play-circle-o fa-2x" style="color: rgb(82, 82, 228);"></i>  
+                  <p class="mb-0">{{Emp.Maxtakatak}}</p>
+                </li>
+              </ul>
+              <div class="d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-primary" (click)="editSMPost(Emp)" >Edit Social Media</button>
+               
+              </div>
+            </div>
+          </div>
+          <div class="card mb-4 mb-lg-0 mt-4">
+            <div class="card-body p-0">
+              <ul class="list-group list-group-flush rounded-3">
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <i class="fa fa-globe fa-2x" style="color: rgb(22, 22, 185);"></i>  
+                  <p class="mb-0"><a style="text-decoration: none;" target="_blank"  [attr.href]="Emp.WebURlAddress">{{Emp.WebURlAddress}}</a></p>
+                </li>
+              </ul>
+              
+            </div>
+          </div>
+
+         
+          <!-- <div class="row">
+            <div class="col-md-6">
+              <div class="card mb-4 mb-md-0">
+                <div class="card-body">
+                  <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span> Project Status
+                  </p>
+                  <p class="mb-1" style="font-size: .77rem;">Web Design</p>
+                  <div class="progress rounded" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
+                  <div class="progress rounded" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
+                  <div class="progress rounded" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
+                  <div class="progress rounded" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
+                  <div class="progress rounded mb-2" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 66%" aria-valuenow="66"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card mb-4 mb-md-0">
+                <div class="card-body">
+                  <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span> Project Status
+                  </p>
+                  <p class="mb-1" style="font-size: .77rem;">Web Design</p>
+                  <div class="progress rounded" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
+                  <div class="progress rounded" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
+                  <div class="progress rounded" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
+                  <div class="progress rounded" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
+                  <div class="progress rounded mb-2" style="height: 5px;">
+                    <div class="progress-bar" role="progressbar" style="width: 66%" aria-valuenow="66"
+                      aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+
+        
+      </div>
+    </div>
+  </section>
+  </div>
+  </main>

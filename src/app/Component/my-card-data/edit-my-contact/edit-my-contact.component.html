@@ -1,0 +1,175 @@
+<div role="document">
+    <div>
+        <form class="form-horizontal" id="edit-form"  [formGroup]="EditemployeeForm"   >
+        
+            <div class="modal-header">
+                <h4 class="modal-title" id="add-modal-label">Add Post </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()"><span
+                        aria-hidden="true">&times;</span></button>
+               
+            </div>
+            <div class="modal-body" style="height: 70vh;overflow: auto;" >
+                <div class="container-fluid">
+                    <h2> Card Data  </h2>
+                
+                    <!-- <div class="form-group">
+                        <label>Address </label>
+                        <input
+                            [class.is-invalid]="EditemployeeForm.get('CardAddress')?.invalid && EditemployeeForm.get('CardAddress')?.touched"
+                            formControlName="CardAddress" type="text" class="form-control" >
+                       <div  *ngIf="EditemployeeForm.get('LastName').invalid && EditemployeeForm.get('LastName').touched ">
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.required" class="text-danger">Last
+                                Name Is Required</small>
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.minlength" class="text-danger">Last
+                                Name Is Should be min 3 char</small>
+                        </div>
+                    </div> -->
+                    
+                    <div class="form-group">
+                        <label>Address </label>
+                        <input
+                            [class.is-invalid]="EditemployeeForm.get('CardAddress')?.invalid && EditemployeeForm.get('CardAddress')?.touched"
+                            formControlName="CardAddress" type="text" class="form-control" >
+                       <!-- <div  *ngIf="EditemployeeForm.get('LastName').invalid && EditemployeeForm.get('LastName').touched ">
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.required" class="text-danger">Last
+                                Name Is Required</small>
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.minlength" class="text-danger">Last
+                                Name Is Should be min 3 char</small>
+                        </div>-->
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Type </label>
+                        <!-- <input
+                            [class.is-invalid]="EditemployeeForm.get('PhoneNoType1')?.invalid && EditemployeeForm.get('PhoneNoType1')?.touched"
+                            formControlName="PhoneNoType1" type="text" class="form-control" > -->
+                       <!-- <div  *ngIf="EditemployeeForm.get('LastName').invalid && EditemployeeForm.get('LastName').touched ">
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.required" class="text-danger">Last
+                                Name Is Required</small>
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.minlength" class="text-danger">Last
+                                Name Is Should be min 3 char</small>
+                        </div>-->
+                        <mat-select formControlName="PhoneNoType1" class="form-control" [(value)]="selectedPhoneType">
+                            <mat-option *ngFor="let phonet of phonetype" [value]="phonet.name">{{ phonet.name }}</mat-option>
+                          </mat-select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone 1 </label>
+                        <input
+                            [class.is-invalid]="EditemployeeForm.get('PhoneNo1')?.invalid && EditemployeeForm.get('PhoneNo1')?.touched"
+                            formControlName="PhoneNo1" type="text" class="form-control" >
+                       <!-- <div  *ngIf="EditemployeeForm.get('LastName').invalid && EditemployeeForm.get('LastName').touched ">
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.required" class="text-danger">Last
+                                Name Is Required</small>
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.minlength" class="text-danger">Last
+                                Name Is Should be min 3 char</small>
+                        </div>-->
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Phone Type </label>
+                        <!-- <input
+                            [class.is-invalid]="EditemployeeForm.get('PhoneNoType2')?.invalid && EditemployeeForm.get('PhoneNoType2')?.touched"
+                            formControlName="PhoneNoType2" type="text" class="form-control" > -->
+                       <!-- <div  *ngIf="EditemployeeForm.get('LastName').invalid && EditemployeeForm.get('LastName').touched ">
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.required" class="text-danger">Last
+                                Name Is Required</small>
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.minlength" class="text-danger">Last
+                                Name Is Should be min 3 char</small>
+                        </div>-->
+                        <mat-select formControlName="PhoneNoType2" class="form-control" [(value)]="selectedPhoneType2">
+                            <mat-option *ngFor="let phonet of phonetype" [value]="phonet.name">{{ phonet.name }}</mat-option>
+                          </mat-select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone 2 </label>
+                        <input
+                            [class.is-invalid]="EditemployeeForm.get('PhoneNo2')?.invalid && EditemployeeForm.get('PhoneNo2')?.touched"
+                            formControlName="PhoneNo2" type="text" class="form-control" >
+                       <!-- <div  *ngIf="EditemployeeForm.get('LastName').invalid && EditemployeeForm.get('LastName').touched ">
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.required" class="text-danger">Last
+                                Name Is Required</small>
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.minlength" class="text-danger">Last
+                                Name Is Should be min 3 char</small>
+                        </div>-->
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Type </label>
+                        <!-- <input
+                            [class.is-invalid]="EditemployeeForm.get('PhoneNoType3')?.invalid && EditemployeeForm.get('PhoneNoType3')?.touched"
+                            formControlName="PhoneNoType3" type="text" class="form-control" > -->
+                       <!-- <div  *ngIf="EditemployeeForm.get('LastName').invalid && EditemployeeForm.get('LastName').touched ">
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.required" class="text-danger">Last
+                                Name Is Required</small>
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.minlength" class="text-danger">Last
+                                Name Is Should be min 3 char</small>
+                        </div>-->
+                        <mat-select formControlName="PhoneNoType3" class="form-control" [(value)]="selectedPhoneType3">
+                            <mat-option *ngFor="let phonet of phonetype" [value]="phonet.name">{{ phonet.name }}</mat-option>
+                          </mat-select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone 3 </label>
+                        <input
+                            [class.is-invalid]="EditemployeeForm.get('PhoneNo3')?.invalid && EditemployeeForm.get('PhoneNo3')?.touched"
+                            formControlName="PhoneNo3" type="text" class="form-control" >
+                       <!-- <div  *ngIf="EditemployeeForm.get('LastName').invalid && EditemployeeForm.get('LastName').touched ">
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.required" class="text-danger">Last
+                                Name Is Required</small>
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.minlength" class="text-danger">Last
+                                Name Is Should be min 3 char</small>
+                        </div>-->
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email </label>
+                        <input
+                            [class.is-invalid]="EditemployeeForm.get('Email')?.invalid && EditemployeeForm.get('Email')?.touched"
+                            formControlName="Email" type="text" class="form-control" >
+                       <!-- <div  *ngIf="EditemployeeForm.get('LastName').invalid && EditemployeeForm.get('LastName').touched ">
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.required" class="text-danger">Last
+                                Name Is Required</small>
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.minlength" class="text-danger">Last
+                                Name Is Should be min 3 char</small>
+                        </div>-->
+                    </div>
+                    
+                 
+                    <div class="form-group">
+                        <label>Website </label>
+                        <div class="input-group"> 
+                            <div class="input-group-prepend">  
+                                <span class="input-group-text">  
+                                  <i class="fa fa-globe fa-2x" style="color: rgb(82, 82, 228);"></i>  
+                                </span>  
+                              </div>  
+                        <input
+                            [class.is-invalid]="EditemployeeForm.get('Website')?.invalid && EditemployeeForm.get('Website')?.touched"
+                            formControlName="Website" type="text" class="form-control" placeholder="http://www.Website.com/Website"  >
+                       <!-- <div  *ngIf="EditemployeeForm.get('LastName').invalid && EditemployeeForm.get('LastName').touched ">
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.required" class="text-danger">Last
+                                Name Is Required</small>
+                            <small *ngIf="EditemployeeForm.get('LastName').errors?.minlength" class="text-danger">Last
+                                Name Is Should be min 3 char</small>
+                        </div>-->
+                        </div>
+                    </div>
+                    </div>
+                  
+                </div>
+
+                <!--<div>{{EditemployeeForm.value | json}}</div>-->
+                <!--<hr />-->
+
+         
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="onClose()">Close</button>
+                <button type="submit" class="btn btn-primary" (click)="onEditPostFormSubmit()">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

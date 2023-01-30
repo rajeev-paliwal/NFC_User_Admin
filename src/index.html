@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>User Panel</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+  <!-- Font-icon css-->
+  <link rel="stylesheet" type="text/css"
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body class="app sidebar-mini rtl mat-typography">
+  <section class="">
+
+    <app-root></app-root>
+  </section>
+  <script src="assets/js/jquery-3.2.1.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- The javascript plugin to display page loading on top-->
+  <script src="assets/js/plugins/pace.min.js"></script>
+  <script type="module">
+
+    function checkInspect() {
+      // alert("vvvvv");
+      // Get notified when it's opened/closed or orientation changes
+      var element = new Image;
+      var devtoolsOpen = false;
+      element.__defineGetter__("id", function () {
+        devtoolsOpen = true; // This only executes when devtools is open.
+      });
+      setInterval(function () {
+        devtoolsOpen = false;
+        // console.log(element);
+        if (devtoolsOpen === true) {
+          let elem = document.querySelector("section");
+          if (elem) {
+            elem.remove();
+          }
+          const divEle = document.createElement('div');
+          divEle.setAttribute('class', 'developer-container');
+          divEle.innerHTML = `<div class="box"><h1>Please close the developer tool to continue !</h1></div>`
+          document.body.appendChild(divEle);
+
+        }
+      }, 1000);
+
+
+
+      var str = navigator.userAgent;
+      if ((str.search("UBrowser") >= 0) || (str.search("UCBrowser") >= 0)) {
+        alert("This video will not play in This browser please use another browser");
+        window.location.href = "";
+      };
+    }
+
+// checkInspect()
+
+  </script>
+</body>
+
+</html>

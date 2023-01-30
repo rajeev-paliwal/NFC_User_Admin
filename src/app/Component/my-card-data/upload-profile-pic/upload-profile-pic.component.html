@@ -1,0 +1,119 @@
+<div role="document">
+    <div>
+      <div class="modal-header">
+        <h4 class="modal-title" id="add-modal-label">Profile Picture Edit</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()"><span
+            aria-hidden="true">&times;</span></button>
+  
+      </div>
+      <div class="modal-body" style="height: 70vh;overflow: auto;">
+        <div class="form-group">
+          <label class="col-sm-10 control-label">Are you sure to delete following post?</label>
+          <div class="col-sm-10">
+            <h3 style="color:blue;">{{HolderName + "-" + UniqueID }}</h3>
+          </div>
+        </div>
+        <form [formGroup]="uploadForm" >
+
+            <div class="preview item" style="border-radius: 50%;" *ngIf="imgFile">
+              <img [src]="imgFile" style="width:250px;">
+            </div>
+            <div class="preview item"  style="border-radius: 50%;"*ngIf="!imgFile">
+                <img [src]="imgFilePath" style="width:250px;">
+              </div>
+
+              <!-- <input type="file" (change)="fileChangeEvent($event)" />
+<br />
+<br />
+<input [(ngModel)]="imageURL" placeholder="URL to load image" type="text" />
+<br />
+<br />
+<button (click)="rotateLeft()">Rotate left</button>
+<button (click)="rotateRight()">Rotate right</button>
+<button (click)="flipHorizontal()">Flip horizontal</button>
+<button (click)="flipVertical()">Flip vertical</button>
+<br />
+<br />
+<button (click)="toggleContainWithinAspectRatio()">{{containWithinAspectRatio?'Fill Aspect Ratio':'Contain Within Aspect Ratio'}}</button>
+<button (click)="toggleAspectRatio()">Aspect ratio: {{aspectRatio === 4/3 ? '4/3' : '16/5'}}</button>
+<button (click)="resetImage()">Reset image</button>
+<br />
+<br />
+<input [(ngModel)]="rotation" placeholder="Rotation" type="number" (ngModelChange)="updateRotation()" /> <button (click)="zoomOut()">Zoom -</button> <button (click)="zoomIn()">Zoom +</button>
+<br />
+<br/>
+<button (click)="moveLeft()">move left</button>
+<button (click)="moveRight()">move right</button>
+
+<button (click)="moveTop()">move top</button>
+<button (click)="moveBottom()">move bottom</button>
+<br/>
+<br/>
+<button (click)="allowMoveImage = !allowMoveImage;">{{allowMoveImage ? 'Disable' : 'Enable' }} image panning</button>
+<button (click)="hidden = !hidden;">{{hidden ? 'Show' : 'Hide' }}</button>
+<br/> -->
+
+
+<div class="cropper-wrapper">
+  <image-cropper
+    [imageChangedEvent]="imageChangedEvent"
+    [imageURL]="imageURL"
+    [maintainAspectRatio]="true"
+    [containWithinAspectRatio]="containWithinAspectRatio"
+    [aspectRatio]="aspectRatio"
+    [resizeToWidth]="200"
+    [cropperMinWidth]="200"
+    [onlyScaleDown]="true"
+    [roundCropper]="false"
+    [canvasRotation]="canvasRotation"
+    [(transform)]="transform"
+    [alignImage]="'center'"
+    [style.display]="showCropper ? null : 'none'"
+    [allowMoveImage]="allowMoveImage"
+    [hidden]="hidden"
+    backgroundColor="red"
+    format="png"
+    (imageCropped)="imageCropped($event)"
+    (imageLoaded)="imageLoaded()"
+    (cropperReady)="cropperReady($event)"
+    (loadImageFailed)="loadImageFailed()"
+    [imageAltText]="'alternative image text'"
+  ></image-cropper>
+  <div *ngIf="loading" class="loader">Loading...</div>
+</div>
+<!-- <div class="item" style="border-radius: 50%;"> -->
+<img [src]="croppedImage" [style.border]="croppedImage ? '1px solid black' : 'none'" />
+<!-- </div> -->
+            <div class="form-group" style="display: none;">
+              <label for="name">File Name</label>
+              <input class="form-control" id="file" formControlName="file" type="text">
+              <div *ngIf="uf.name.touched && uf.name.invalid" class="alert alert-danger">
+                <!-- <div *ngIf="uf.name.errors.required">Name is required.</div> -->
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label for="file">File</label>
+              <input type="file" class="form-control" id="file" formControlName="file" (change)="fileChangeEvent($event)" /> 
+               <!-- (change)="onImageChange($event)"> -->
+              <div *ngIf="uf.file.touched && uf.file.invalid" class="alert alert-danger">
+                <!-- <div *ngIf="uf.file.errors.required">Image file is required.</div> -->
+              </div>
+            </div>
+        </form>          
+        <div class="form-group">
+          <label class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+            <button type="button" class="btn btn-default" data-dismiss="modal" (click)="onClose()">Close</button>
+            <button *ngIf="!loading" type="submit" [disabled]="croppedImage===''" class="btn btn-primary" (click)="upload( )"
+              style="margin:5px;">Upload</button>
+              <button *ngIf="loading" type="submit" [disabled]="croppedImage===''" class="btn btn-primary" (click)="upload( )"
+              style="margin:5px;">
+              <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+              <i class="fa fa-sign-in fa-lg fa-fw"></i> Uploading ...
+              </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

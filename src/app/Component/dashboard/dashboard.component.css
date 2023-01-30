@@ -1,0 +1,16 @@
+img {
+    max-width: 100%;
+    height: auto;
+
+} 
+
+.item {
+  margin: auto;
+    width: 200px;
+   height: 200px;
+   overflow: hidden;
+  /*  height: auto; */
+   /* float: left;
+    margin: 3px;
+    padding: 3px;*/
+}

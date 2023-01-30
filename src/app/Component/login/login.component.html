@@ -1,0 +1,57 @@
+<div>
+    <section class="material-half-bg">
+      <div class="cover"></div>
+    </section>
+    <section class="login-content"  >
+      <div class="logo">
+        <h1>Card User</h1>
+      </div>
+      <div class="login-box">
+        
+        <form [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
+        <div class="login-form" >
+          <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>SIGN IN</h3>
+          <div class="form-group">
+            <label class="control-label">USERNAME</label>
+            <input class="form-control" type="text" placeholder="Email" 
+            [class.is-invalid]="loginForm.get('userName')?.invalid && loginForm.get('userName')?.touched" formControlName="userName"
+            autofocus>
+            <small [class.d-none]="loginForm.get('userName')?.valid || loginForm.get('userName')?.untouched" 
+                 class = "text-danger">User Name Is Required</small>
+          </div>
+  
+          
+          <div class="form-group">
+            <label class="control-label">PASSWORD</label>
+            <input class="form-control" type="password" placeholder="Password"
+             [class.is-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" formControlName="password">
+            <small [class.d-none]="loginForm.get('password')?.valid || loginForm.get('password')?.untouched"
+                  class = "text-danger">User Name Is Required</small>
+          </div>
+          <div class="form-group">
+            <div class="utility">
+              <div class="animated-checkbox">
+                <label>
+                  <input type="checkbox"><span class="label-text">Stay Signed in</span>
+                </label>
+              </div>
+              <p class="semibold-text mb-2"><a href="#" data-toggle="flip">Forgot Password ?</a></p>
+            </div>
+          </div>
+          <div class="form-group btn-container">
+            <button *ngIf="!loading" class="btn btn-primary btn-block" [disabled]='!loginForm.valid' [class.spinner]="loading" type="submit"><i class="fa fa-sign-in fa-lg fa-fw"></i>SIGN IN </button> 
+            <button *ngIf="loading" class="btn btn-primary btn-block" type="button" disabled>
+              <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+              <i class="fa fa-sign-in fa-lg fa-fw"></i> SIGN IN...
+            </button>
+          </div>
+        
+      </div>
+        </form>
+      
+      <!-- <app-forgetpassword></app-forgetpassword> -->
+    </div>
+    </section>
+  </div>
+  
+  
