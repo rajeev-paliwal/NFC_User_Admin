@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { BehaviorSubject } from "rxjs";
 import { from, Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators'
-import { Carddata } from './../model/carddata'
+import { Carddata, PasswordUpdateReq } from './../model/carddata'
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -53,7 +53,10 @@ export class CardDataService {
     // debugger ;
     return this.http.post<any>(this.serverURL + "getEmployee", Employee).pipe(catchError(this.handleError));
   }
-
+  UpdatePassword(Employee: PasswordUpdateReq) {
+    // debugger ;
+    return this.http.post<any>(this.serverURL + "PasswordResetCardData", Employee).pipe(catchError(this.handleError));
+  }
 
   Editemployee(Employee: Carddata)  : Observable<Carddata>{
   //  debugger;

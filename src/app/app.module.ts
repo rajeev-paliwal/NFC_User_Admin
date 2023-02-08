@@ -33,6 +33,7 @@ import { EditMyContactComponent } from './Component/my-card-data/edit-my-contact
 import { EditMyProfileDetailComponent } from './Component/my-card-data/edit-my-profile-detail/edit-my-profile-detail.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { ResetPasswordComponent } from './Component/reset-password/reset-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,8 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     UploadProfilePicComponent,
     EditMySocialmediaComponent,
     EditMyContactComponent,
-    EditMyProfileDetailComponent
+    EditMyProfileDetailComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

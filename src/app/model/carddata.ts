@@ -46,3 +46,18 @@ ImagePath: string;
 fileext: string;
             
 }
+export class PasswordUpdateResponse
+    {
+          Data :number ;
+         Message :string;  
+    }
+
+    export class PasswordUpdateReq
+    {
+          CardHolderid :number  
+         UniqId :string;  
+         UserName :string;  
+         Pwd :string;  
+
+         Rpwd:string;  
+    }

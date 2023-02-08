@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Carddata } from 'src/app/model/carddata';
 import { CardDataService } from 'src/app/services/card-data.service';
@@ -10,6 +11,7 @@ import { EditMyDataComponent } from '../my-card-data/edit-my-data/edit-my-data.c
 import { EditMyProfileDetailComponent } from '../my-card-data/edit-my-profile-detail/edit-my-profile-detail.component';
 import { EditMySocialmediaComponent } from '../my-card-data/edit-my-socialmedia/edit-my-socialmedia.component';
 import { UploadProfilePicComponent } from '../my-card-data/upload-profile-pic/upload-profile-pic.component';
+import { ResetPasswordComponent } from '../reset-password/reset-password.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,7 +25,7 @@ export class DashboardComponent {
   Emp: Carddata;
   isloading :boolean =true ; 
 
-  constructor(private pipe : DatePipe ,private service : UserloginService,private empservice: CardDataService ,private matDialog: MatDialog , private toastr: ToastrService) { }
+  constructor(private route : Router,private pipe : DatePipe ,private service : UserloginService,private empservice: CardDataService ,private matDialog: MatDialog , private toastr: ToastrService) { }
   ngOnInit(): void {
     // debugger ;
 
@@ -144,6 +146,34 @@ export class DashboardComponent {
         this.toastr.success(result.Data.Message, "Success:", {
           timeOut: 3000
         });
+      } else {
+        this.toastr.error(result.Data.Message, "Error:", {
+          timeOut: 3000
+        });
+      }
+    });
+  }
+  logoutclick(){
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    this.route.navigate(['login']);
+}
+  UpdatePassword(row:any){
+    let dialogRef = this.matDialog.open(ResetPasswordComponent, {
+      width: '950px',
+      disableClose: true, hasBackdrop: true,
+      data: { ele: row }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+     // let id: number = JSON.parse(localStorage.getItem('user')!).Data.CardHolderid;
+      //let uid: string = JSON.parse(localStorage.getItem('user')!).Data.UniqId;
+      //this.GetMyCardData(id, uid);
+      if (result.Data.Data==1 ) {
+        this.toastr.success(result.Data.Message, "Success:", {
+          timeOut: 3000
+        }
+        );
+        this.logoutclick();
       } else {
         this.toastr.error(result.Data.Message, "Error:", {
           timeOut: 3000
